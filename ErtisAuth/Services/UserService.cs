@@ -143,6 +143,16 @@ namespace ErtisAuth.Services
 			}
 		}
 
+		public IResponseResult<User> UpdateUser(User user)
+		{
+			return this.UpdateUser(user, this.AdministratorToken);
+		}
+
+		public async Task<IResponseResult<User>> UpdateUserAsync(User user)
+		{
+			return await this.UpdateUserAsync(user, this.AdministratorToken);
+		}
+		
 		public IResponseResult<User> UpdateUser(User user, string accessToken)
 		{
 			return this.UpdateUserAsync(user, accessToken).ConfigureAwait(false).GetAwaiter().GetResult();

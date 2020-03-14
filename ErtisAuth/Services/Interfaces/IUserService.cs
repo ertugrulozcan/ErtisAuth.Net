@@ -25,6 +25,10 @@ namespace ErtisAuth.Services.Interfaces
 		
 		Task<IResponseResult<User>> CreateUserAsync(RegistrationForm userForm, string accessToken);
 		
+		IResponseResult<User> UpdateUser(User user);
+		
+		Task<IResponseResult<User>> UpdateUserAsync(User user);
+		
 		IResponseResult<User> UpdateUser(User user, string accessToken);
 		
 		Task<IResponseResult<User>> UpdateUserAsync(User user, string accessToken);
