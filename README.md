@@ -1,7 +1,7 @@
 # ErtisAuth.Net
 ErtisAuth .Net Client API
 
-#### ErtisAuth 1.1.5
+#### ErtisAuth 1.1.6
 ![Nuget](https://img.shields.io/nuget/v/ErtisAuth)
 ```
 Install-Package ErtisAuth -Version 1.1.5
