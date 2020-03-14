@@ -112,7 +112,7 @@
           <e p="JsonContractResolver.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="ErtisAuth.AssemblyInfo.cs" t="Include" />
             </e>
@@ -160,7 +160,7 @@
         <e p="ErtisAuth.Extensions.AspNetCore.csproj" t="IncludeRecursive" />
         <e p="IocExtensions.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="ErtisAuth.Extensions.AspNetCore.AssemblyInfo.cs" t="Include" />
             </e>
@@ -173,7 +173,7 @@
         <e p="EndpointTests.cs" t="Include" />
         <e p="ErtisAuth.Tests.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp2.2" t="Include">
               <e p="ErtisAuth.Tests.AssemblyInfo.cs" t="Include" />
               <e p="ErtisAuth.Tests.Program.cs" t="Include" />
