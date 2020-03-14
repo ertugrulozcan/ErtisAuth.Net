@@ -137,7 +137,8 @@ namespace ErtisAuth.Services
 		{
 			var response = await this.RolesEndpoint.PutAsync<Role>(
 				new RolesEndpoint.RolesEndpointUrlParams()
-					.SetMembershipId(this.MembershipId),
+					.SetMembershipId(this.MembershipId)
+					.SetRoleId(role.Id),
 				body: new RequestBody(role),
 				headers: HeaderCollection.Add("Authorization", $"Bearer {accessToken}"));
 

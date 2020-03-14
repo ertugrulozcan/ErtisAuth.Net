@@ -140,7 +140,8 @@ namespace ErtisAuth.Services
 		{
 			var response = await this.ApplicationsEndpoint.PutAsync<Application>(
 				new ApplicationsEndpoint.ApplicationsEndpointUrlParams()
-					.SetMembershipId(this.MembershipId),
+					.SetMembershipId(this.MembershipId)
+					.SetApplicationId(application.Id),
 				body: new RequestBody(application),
 				headers: HeaderCollection.Add("Authorization", $"Bearer {accessToken}"));
 

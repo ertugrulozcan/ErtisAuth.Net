@@ -153,7 +153,8 @@ namespace ErtisAuth.Services
 			var response = await this.UsersEndpoint.PutAsync<User>(
 				body: new RequestBody(user),
 				urlParams: new UsersEndpoint.UsersEndpointUrlParams()
-					.SetMembershipId(this.MembershipId),
+					.SetMembershipId(this.MembershipId)
+					.SetUserId(user.Id),
 				headers: HeaderCollection.Add("Authorization", $"Bearer {accessToken}"));
 
 			if (response.IsSuccess)
