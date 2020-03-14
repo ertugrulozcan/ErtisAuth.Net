@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.2</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <PackageId>ErtisAuth</PackageId>
+        <PackageVersion>1.1.5</PackageVersion>
+        <Authors>Ertuğrul Özcan</Authors>
+        <Description>ErtisAuth .Net Client API</Description>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <Copyright>Ertuğrul Özcan | Copyright 2020 (c)</Copyright>
+        <PackageReleaseNotes>Application and Roles support</PackageReleaseNotes>
+        <PackageTags>ErtisAuth</PackageTags>
+        <Title>ErtisAuth</Title>
+        <PackageProjectUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</RepositoryUrl>
+        <AssemblyVersion>1.1.5</AssemblyVersion>
+        <FileVersion>1.1.5</FileVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Core\Models\Diagnostics" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
+</Project>
