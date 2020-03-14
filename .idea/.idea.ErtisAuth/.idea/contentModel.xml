@@ -14,6 +14,7 @@
         <e p="Annotations" t="Include">
           <e p="JsonIgnoreWhenNull.cs" t="Include" />
           <e p="JsonIgnoreWhenPost.cs" t="Include" />
+          <e p="JsonIgnoreWhenPut.cs" t="Include" />
         </e>
         <e p="Api" t="Include">
           <e p="Endpoints" t="Include">
@@ -108,7 +109,7 @@
           <e p="ServiceProvider.cs" t="Include" />
         </e>
         <e p="Json" t="Include">
-          <e p="BlupointJsonContractResolver.cs" t="Include" />
+          <e p="JsonContractResolver.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

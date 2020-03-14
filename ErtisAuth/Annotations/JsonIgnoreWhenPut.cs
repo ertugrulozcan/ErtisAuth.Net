@@ -8,7 +8,7 @@ namespace ErtisAuth.Annotations
 	/// Serializer ayarlarında ContractResolver'ın JsonContractResolver ile override edilmesi gerekir. Aksi taktirde bir işe yaramaz.
 	/// </summary>
 	[AttributeUsage(AttributeTargets.Property)]
-	public class JsonIgnoreWhenPost : Attribute
+	public class JsonIgnoreWhenPut : Attribute
 	{
 		
 	}

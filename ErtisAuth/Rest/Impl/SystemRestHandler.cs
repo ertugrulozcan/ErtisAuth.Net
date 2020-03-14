@@ -61,7 +61,7 @@ namespace ErtisAuth.Rest.Impl
 
 		public async Task<IResponseResult> ExecuteRequestAsync(HttpMethod method, string url, RequestBody body, IHeaderCollection headers)
 		{
-			var payload = this.PrepareBody(body);
+			var payload = this.GenerateBody(body, method);
 			
 			this.Client.DefaultRequestHeaders.Clear();
 			if (headers != null)
@@ -110,7 +110,7 @@ namespace ErtisAuth.Rest.Impl
 			}
 		}
 
-		private HttpContent PrepareBody(RequestBody body)
+		private HttpContent GenerateBody(RequestBody body, HttpMethod method)
 		{
 			if (body == null)
 				return null;
@@ -119,10 +119,25 @@ namespace ErtisAuth.Rest.Impl
 			
 			if (body.Type == RequestBody.BodyTypes.Json)
 			{
-				string json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings()
+				string json;
+				if (method == HttpMethod.Post)
 				{
-					ContractResolver = new BlupointJsonContractResolver()
-				});
+					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings()
+					{
+						ContractResolver = new JsonContractResolver(HttpMethod.Post)
+					});	
+				}
+				else if (method == HttpMethod.Put)
+				{
+					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings()
+					{
+						ContractResolver = new JsonContractResolver(HttpMethod.Put)
+					});	
+				}
+				else
+				{
+					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context);
+				}
 				
 				var buffer = System.Text.Encoding.UTF8.GetBytes(json);
 				content = new ByteArrayContent(buffer);

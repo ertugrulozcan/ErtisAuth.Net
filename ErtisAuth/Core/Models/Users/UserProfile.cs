@@ -42,10 +42,12 @@ namespace ErtisAuth.Core.Models.Users
 		
 		[JsonProperty("modified_date")]
 		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPut]
 		public DateTime? ModifiedDate { get; set; }
 		
 		[JsonProperty("modified_by")]
 		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPut]
 		public string ModifiedBy { get; set; }
 		
 		#endregion

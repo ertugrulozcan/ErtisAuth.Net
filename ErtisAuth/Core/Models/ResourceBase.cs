@@ -9,18 +9,21 @@ namespace ErtisAuth.Core.Models
 		#region Properties
 
 		[JsonProperty("_id")]
-		[JsonIgnoreWhenPost(true)]
 		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
 		public string Id { get; set; }
 		
 		[JsonProperty("membership_id")]
 		[JsonIgnoreWhenNull]
-		[JsonIgnoreWhenPost(true)]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
 		public string MembershipId { get; set; }
 		
 		[JsonProperty("sys")]
 		[JsonIgnoreWhenNull]
-		[JsonIgnoreWhenPost(true)]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
 		public SysModel Sys { get; set; }
 
 		#endregion

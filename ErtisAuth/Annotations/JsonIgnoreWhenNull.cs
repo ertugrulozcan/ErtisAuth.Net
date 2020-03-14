@@ -7,6 +7,6 @@ namespace ErtisAuth.Annotations
 	{
 		// Bu annotation ile flag'lenmiş propertyler değeri null olduğunda serialization işlemine dahil edilmez, json'a eklenmez.
 		// Yalnızca property'ler için kullanılır.
-		// Serializer ayarlarında ContractResolver'ın BlupointJsonContractResolver ile override edilmesi gerekir. Aksi taktirde bir işe yaramaz.
+		// Serializer ayarlarında ContractResolver'ın JsonContractResolver ile override edilmesi gerekir. Aksi taktirde bir işe yaramaz.
 	}
 }
