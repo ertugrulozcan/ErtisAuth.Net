@@ -19,10 +19,13 @@ namespace ErtisAuth.Services
 		
 		#region Constructors
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="configuration"></param>
 		public RoleService(IErtisAuthConfiguration configuration) : base(configuration)
 		{
 			this.RolesEndpoint = new RolesEndpoint(this.BaseUrl);
-
 		}
 
 		#endregion

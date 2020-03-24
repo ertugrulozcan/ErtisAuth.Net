@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using ErtisAuth.Api.Endpoints.Auth;
 using ErtisAuth.Config;
 using ErtisAuth.Core.Models.Auth;
-using ErtisAuth.Core.Models.Users;
 using ErtisAuth.Infrastructure;
 using ErtisAuth.Services.Interfaces;
 
@@ -122,14 +121,14 @@ namespace ErtisAuth.Services
 			return new ResponseResult(response.HttpCode != null && response.HttpCode.Value == HttpStatusCode.NoContent);
 		}
 		
-		public IResponseResult<User> WhoAmI(string token)
+		public IResponseResult<Me> WhoAmI(string token)
 		{
-			return this.MeEndpoint.Get<User>(headers: HeaderCollection.Add("Authorization", $"Bearer {token}"));
+			return this.MeEndpoint.Get<Me>(headers: HeaderCollection.Add("Authorization", $"Bearer {token}"));
 		}
 
-		public async Task<IResponseResult<User>> WhoAmIAsync(string token)
+		public async Task<IResponseResult<Me>> WhoAmIAsync(string token)
 		{
-			return await this.MeEndpoint.GetAsync<User>(headers: HeaderCollection.Add("Authorization", $"Bearer {token}"));
+			return await this.MeEndpoint.GetAsync<Me>(headers: HeaderCollection.Add("Authorization", $"Bearer {token}"));
 		}
 		
 		#endregion

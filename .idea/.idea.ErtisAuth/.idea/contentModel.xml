@@ -60,6 +60,7 @@
               <e p="AuthenticationToken.cs" t="Include" />
               <e p="Credentials.cs" t="Include" />
               <e p="ExtendedToken.cs" t="Include" />
+              <e p="Me.cs" t="Include" />
               <e p="RegistrationForm.cs" t="Include" />
             </e>
             <e p="Common" t="Include">
@@ -68,7 +69,10 @@
               <e p="ProviderModel.cs" t="Include" />
               <e p="SysModel.cs" t="Include" />
             </e>
-            <e p="Diagnostics" t="Include" />
+            <e p="IHasIdentifier.cs" t="Include" />
+            <e p="IHasTitle.cs" t="Include" />
+            <e p="IMembershipBoundedResource.cs" t="Include" />
+            <e p="MembershipModel.cs" t="Include" />
             <e p="ResourceBase.cs" t="Include" />
             <e p="Response" t="Include">
               <e p="CollectionResponse.cs" t="Include" />
@@ -78,6 +82,7 @@
             </e>
             <e p="Users" t="Include">
               <e p="User.cs" t="Include" />
+              <e p="UserBase.cs" t="Include" />
               <e p="UserProfile.cs" t="Include" />
             </e>
           </e>

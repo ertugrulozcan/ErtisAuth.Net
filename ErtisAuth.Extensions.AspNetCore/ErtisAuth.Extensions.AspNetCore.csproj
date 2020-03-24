@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <PackageId>ErtisAuth.Extensions.AspNetCore</PackageId>
-        <PackageVersion>1.0.6</PackageVersion>
+        <PackageVersion>1.1.0</PackageVersion>
         <Authors>Ertuğrul Özcan</Authors>
         <Description>ErtisAuth .Net Client API | AspNetCore Extensions</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -14,12 +14,12 @@
         <Title>ErtisAuth AspNetCore Extensions</Title>
         <PackageProjectUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</RepositoryUrl>
-        <AssemblyVersion>1.0.6</AssemblyVersion>
-        <FileVersion>1.0.6</FileVersion>
+        <AssemblyVersion>1.1.0</AssemblyVersion>
+        <FileVersion>1.1.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ErtisAuth" Version="1.1.8" />
+      <PackageReference Include="ErtisAuth" Version="1.2.4" />
       <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
       <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
     </ItemGroup>

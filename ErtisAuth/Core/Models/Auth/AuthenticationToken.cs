@@ -1,3 +1,4 @@
+using System;
 using Newtonsoft.Json;
 
 namespace ErtisAuth.Core.Models.Auth
@@ -20,7 +21,7 @@ namespace ErtisAuth.Core.Models.Auth
 		
 		[JsonProperty("token_type")]
 		public string TokenType { get; set; }
-		
+
 		#endregion
 	}
 }

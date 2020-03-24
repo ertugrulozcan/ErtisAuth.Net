@@ -32,7 +32,7 @@ namespace ErtisAuth.Services
 
 		protected IHeaderCollection GetMembershipHeaders()
 		{
-			return HeaderCollection.Add("X-Membership-Alias", this.MembershipId);
+			return HeaderCollection.Add("X-Ertis-Alias", this.MembershipId);
 		}
 
 		#endregion

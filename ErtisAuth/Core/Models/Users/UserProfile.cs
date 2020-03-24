@@ -8,6 +8,18 @@ namespace ErtisAuth.Core.Models.Users
 	{
 		#region Properties
 
+		[JsonProperty("display_name")]
+		[JsonIgnoreWhenNull]
+		public string DisplayName { get; set; }
+		
+		[JsonProperty("photo_url")]
+		[JsonIgnoreWhenNull]
+		public string PhotoUrl { get; set; }
+		
+		[JsonProperty("link")]
+		[JsonIgnoreWhenNull]
+		public string Link { get; set; }
+		
 		[JsonProperty("area_code")]
 		[JsonIgnoreWhenNull]
 		public string AreaCode { get; set; }
@@ -40,10 +52,10 @@ namespace ErtisAuth.Core.Models.Users
 		[JsonIgnoreWhenNull]
 		public string Nationality { get; set; }
 		
-		[JsonProperty("modified_date")]
+		[JsonProperty("modified_at")]
 		[JsonIgnoreWhenNull]
 		[JsonIgnoreWhenPut]
-		public DateTime? ModifiedDate { get; set; }
+		public DateTime? ModifiedAt { get; set; }
 		
 		[JsonProperty("modified_by")]
 		[JsonIgnoreWhenNull]

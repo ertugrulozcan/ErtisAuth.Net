@@ -37,9 +37,9 @@ namespace ErtisAuth.Services.Interfaces
 		
 		Task<IResponseResult> RevokeTokenAsync(string accessToken);
 
-		IResponseResult<User> WhoAmI(string token);
+		IResponseResult<Me> WhoAmI(string token);
 		
-		Task<IResponseResult<User>> WhoAmIAsync(string token);
+		Task<IResponseResult<Me>> WhoAmIAsync(string token);
 
 		#endregion
 	}

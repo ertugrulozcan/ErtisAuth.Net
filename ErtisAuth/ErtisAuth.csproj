@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <PackageId>ErtisAuth</PackageId>
-        <PackageVersion>1.1.8</PackageVersion>
+        <PackageVersion>1.2.4</PackageVersion>
         <Authors>Ertuğrul Özcan</Authors>
         <Description>ErtisAuth .Net Client API</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -15,13 +15,9 @@
         <Title>ErtisAuth</Title>
         <PackageProjectUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</RepositoryUrl>
-        <AssemblyVersion>1.1.8</AssemblyVersion>
-        <FileVersion>1.1.8</FileVersion>
+        <AssemblyVersion>1.2.4</AssemblyVersion>
+        <FileVersion>1.2.4</FileVersion>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Folder Include="Core\Models\Diagnostics" />
-    </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />

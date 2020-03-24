@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace ErtisAuth.Core.Models
 {
-	public abstract class ResourceBase
+	public abstract class ResourceBase : IHasIdentifier
 	{
 		#region Properties
 
@@ -13,12 +13,6 @@ namespace ErtisAuth.Core.Models
 		[JsonIgnoreWhenPost]
 		[JsonIgnoreWhenPut]
 		public string Id { get; set; }
-		
-		[JsonProperty("membership_id")]
-		[JsonIgnoreWhenNull]
-		[JsonIgnoreWhenPost]
-		[JsonIgnoreWhenPut]
-		public string MembershipId { get; set; }
 		
 		[JsonProperty("sys")]
 		[JsonIgnoreWhenNull]
