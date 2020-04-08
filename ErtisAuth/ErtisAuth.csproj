@@ -5,7 +5,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <PackageId>ErtisAuth</PackageId>
-        <PackageVersion>1.2.5</PackageVersion>
+        <PackageVersion>1.2.6</PackageVersion>
         <Authors>Ertuğrul Özcan</Authors>
         <Description>ErtisAuth .Net Client API</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -15,8 +15,8 @@
         <Title>ErtisAuth</Title>
         <PackageProjectUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</RepositoryUrl>
-        <AssemblyVersion>1.2.5</AssemblyVersion>
-        <FileVersion>1.2.5</FileVersion>
+        <AssemblyVersion>1.2.6</AssemblyVersion>
+        <FileVersion>1.2.6</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

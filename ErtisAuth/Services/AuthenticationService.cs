@@ -1,3 +1,4 @@
+using System;
 using System.Net;
 using System.Threading.Tasks;
 using ErtisAuth.Api.Endpoints.Auth;
@@ -136,27 +137,43 @@ namespace ErtisAuth.Services
 		
 		public IResponseResult HealthCheck()
 		{
-			var response = this.HealthCheckEndpoint.Get<HealthCheckResponse>();
-			if (response.IsSuccess)
+			try
 			{
-				return new ResponseResult(response.Data.IsHealthy);
+				var response = this.HealthCheckEndpoint.Get<HealthCheckResponse>();
+				if (response.IsSuccess)
+				{
+					return new ResponseResult(response.Data.IsHealthy);
+				}
+				else
+				{
+					return new ResponseResult(false, response.Message);
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				return new ResponseResult(false, response.Message);
+				Console.WriteLine(ex);
+				return new ResponseResult(false, ex.Message);
 			}
 		}
 
 		public async Task<IResponseResult> HealthCheckAsync()
 		{
-			var response = await this.HealthCheckEndpoint.GetAsync<HealthCheckResponse>();
-			if (response.IsSuccess)
+			try
 			{
-				return new ResponseResult(response.Data.IsHealthy);
+				var response = await this.HealthCheckEndpoint.GetAsync<HealthCheckResponse>();
+				if (response.IsSuccess)
+				{
+					return new ResponseResult(response.Data.IsHealthy);
+				}
+				else
+				{
+					return new ResponseResult(false, response.Message);
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				return new ResponseResult(false, response.Message);
+				Console.WriteLine(ex);
+				return new ResponseResult(false, ex.Message);
 			}
 		}
 		
