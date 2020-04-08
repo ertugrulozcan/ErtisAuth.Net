@@ -41,6 +41,10 @@ namespace ErtisAuth.Services.Interfaces
 		
 		Task<IResponseResult<Me>> WhoAmIAsync(string token);
 
+		IResponseResult HealthCheck();
+
+		Task<IResponseResult> HealthCheckAsync();
+
 		#endregion
 	}
 }

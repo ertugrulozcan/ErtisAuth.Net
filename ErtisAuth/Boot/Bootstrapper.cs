@@ -16,6 +16,10 @@ namespace ErtisAuth.Boot
 		public Bootstrapper(IErtisAuthConfiguration options)
 		{
 			ServiceProvider.Current.RegisterInstance(options);
+			
+			Console.WriteLine($"ErtisAuth.BaseUrl : '{options.BaseUrl}'");
+			Console.WriteLine($"ErtisAuth.MembershipId : '{options.MembershipId}'");
+			Console.WriteLine($"ErtisAuth.AdministratorToken : '{options.AdminAccessToken}'");
 		}
 
 		#endregion

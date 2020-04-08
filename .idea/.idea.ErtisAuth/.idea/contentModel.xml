@@ -60,6 +60,7 @@
               <e p="AuthenticationToken.cs" t="Include" />
               <e p="Credentials.cs" t="Include" />
               <e p="ExtendedToken.cs" t="Include" />
+              <e p="HealthCheckResponse.cs" t="Include" />
               <e p="Me.cs" t="Include" />
               <e p="RegistrationForm.cs" t="Include" />
             </e>

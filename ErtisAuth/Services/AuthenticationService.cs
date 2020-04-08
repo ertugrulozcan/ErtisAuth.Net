@@ -1,6 +1,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using ErtisAuth.Api.Endpoints.Auth;
+using ErtisAuth.Api.Endpoints.Diagnostics;
 using ErtisAuth.Config;
 using ErtisAuth.Core.Models.Auth;
 using ErtisAuth.Infrastructure;
@@ -17,6 +18,7 @@ namespace ErtisAuth.Services
 		private readonly VerifyTokenEndpoint VerifyTokenEndpoint;
 		private readonly RevokeTokenEndpoint RevokeTokenEndpoint;
 		private readonly MeEndpoint MeEndpoint;
+		private readonly HealthCheckEndpoint HealthCheckEndpoint;
 		
 		#endregion
 		
@@ -33,6 +35,7 @@ namespace ErtisAuth.Services
 			this.VerifyTokenEndpoint = new VerifyTokenEndpoint(this.BaseUrl);
 			this.RevokeTokenEndpoint = new RevokeTokenEndpoint(this.BaseUrl);
 			this.MeEndpoint = new MeEndpoint(this.BaseUrl);
+			this.HealthCheckEndpoint = new HealthCheckEndpoint(this.BaseUrl);
 		}
 
 		#endregion
@@ -129,6 +132,32 @@ namespace ErtisAuth.Services
 		public async Task<IResponseResult<Me>> WhoAmIAsync(string token)
 		{
 			return await this.MeEndpoint.GetAsync<Me>(headers: HeaderCollection.Add("Authorization", $"Bearer {token}"));
+		}
+		
+		public IResponseResult HealthCheck()
+		{
+			var response = this.HealthCheckEndpoint.Get<HealthCheckResponse>();
+			if (response.IsSuccess)
+			{
+				return new ResponseResult(response.Data.IsHealthy);
+			}
+			else
+			{
+				return new ResponseResult(false, response.Message);
+			}
+		}
+
+		public async Task<IResponseResult> HealthCheckAsync()
+		{
+			var response = await this.HealthCheckEndpoint.GetAsync<HealthCheckResponse>();
+			if (response.IsSuccess)
+			{
+				return new ResponseResult(response.Data.IsHealthy);
+			}
+			else
+			{
+				return new ResponseResult(false, response.Message);
+			}
 		}
 		
 		#endregion
