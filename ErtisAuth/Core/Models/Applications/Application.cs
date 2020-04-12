@@ -6,6 +6,15 @@ namespace ErtisAuth.Core.Models.Applications
 	public sealed class Application : ResourceBase, IMembershipBoundedResource, IHasTitle
 	{
 		#region Properties
+		
+		[JsonIgnore]
+		public string Title
+		{
+			get
+			{
+				return this.Name;
+			}
+		}
 
 		[JsonProperty("name")]
 		[JsonIgnoreWhenNull]
@@ -19,20 +28,15 @@ namespace ErtisAuth.Core.Models.Applications
 		[JsonIgnoreWhenNull]
 		public string Secret { get; set; }
 		
+		[JsonProperty("role")]
+		[JsonIgnoreWhenNull]
+		public string Role { get; set; }
+		
 		[JsonProperty("membership_id")]
 		[JsonIgnoreWhenNull]
 		[JsonIgnoreWhenPost]
 		[JsonIgnoreWhenPut]
 		public string MembershipId { get; set; }
-		
-		[JsonIgnore]
-		public string Title
-		{
-			get
-			{
-				return this.Name;
-			}
-		}
 		
 		#endregion
 	}

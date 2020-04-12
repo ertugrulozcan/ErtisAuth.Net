@@ -8,21 +8,9 @@ namespace ErtisAuth.Core.Models.Users
 	{
 		#region Properties
 
-		[JsonProperty("display_name")]
-		[JsonIgnoreWhenNull]
-		public string DisplayName { get; set; }
-		
 		[JsonProperty("photo_url")]
 		[JsonIgnoreWhenNull]
 		public string PhotoUrl { get; set; }
-		
-		[JsonProperty("link")]
-		[JsonIgnoreWhenNull]
-		public string Link { get; set; }
-		
-		[JsonProperty("area_code")]
-		[JsonIgnoreWhenNull]
-		public string AreaCode { get; set; }
 		
 		[JsonProperty("phone")]
 		[JsonIgnoreWhenNull]
@@ -31,36 +19,6 @@ namespace ErtisAuth.Core.Models.Users
 		[JsonProperty("birthdate")]
 		[JsonIgnoreWhenNull]
 		public DateTime? BirthDate { get; set; }
-		
-		[JsonProperty("address_line_1")]
-		[JsonIgnoreWhenNull]
-		public string AddressLine1 { get; set; }
-		
-		[JsonProperty("address_line_2")]
-		[JsonIgnoreWhenNull]
-		public string AddressLine2 { get; set; }
-		
-		[JsonProperty("city")]
-		[JsonIgnoreWhenNull]
-		public string City { get; set; }
-		
-		[JsonProperty("country")]
-		[JsonIgnoreWhenNull]
-		public string Country { get; set; }
-		
-		[JsonProperty("nationality")]
-		[JsonIgnoreWhenNull]
-		public string Nationality { get; set; }
-		
-		[JsonProperty("modified_at")]
-		[JsonIgnoreWhenNull]
-		[JsonIgnoreWhenPut]
-		public DateTime? ModifiedAt { get; set; }
-		
-		[JsonProperty("modified_by")]
-		[JsonIgnoreWhenNull]
-		[JsonIgnoreWhenPut]
-		public string ModifiedBy { get; set; }
 		
 		#endregion
 	}

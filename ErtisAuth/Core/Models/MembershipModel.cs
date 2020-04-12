@@ -15,6 +15,14 @@ namespace ErtisAuth.Core.Models
 		[JsonIgnoreWhenNull]
 		public string Slug { get; set; }
 		
+		[JsonProperty("token_ttl")]
+		[JsonIgnoreWhenNull]
+		public int TokenTTL { get; set; }
+		
+		[JsonProperty("refresh_token_ttl")]
+		[JsonIgnoreWhenNull]
+		public int RefreshTokenTTL { get; set; }
+		
 		#endregion
 	}
 }
