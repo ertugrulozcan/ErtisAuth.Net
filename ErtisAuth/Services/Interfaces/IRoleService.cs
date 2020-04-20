@@ -12,9 +12,9 @@ namespace ErtisAuth.Services.Interfaces
 		
 		Task<IResponseResult<Role>> GetRoleAsync(string roleId, string accessToken);
 		
-		IResponseResult<IEnumerable<Role>> GetRoles(string accessToken, int? skip, int? limit, out int totalCount);
+		IResponseResult<IEnumerable<Role>> GetRoles(string accessToken, out int totalCount, int? skip = null, int? limit = null);
 		
-		Task<IResponseResult<CollectionResponseData<Role>>> GetRolesAsync(string accessToken, int? skip, int? limit);
+		Task<IResponseResult<CollectionResponseData<Role>>> GetRolesAsync(string accessToken, int? skip = null, int? limit = null);
 		
 		IResponseResult<Role> CreateRole(Role role, string accessToken);
 		

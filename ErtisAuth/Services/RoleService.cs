@@ -62,7 +62,7 @@ namespace ErtisAuth.Services
 			}
 		}
 
-		public IResponseResult<IEnumerable<Role>> GetRoles(string accessToken, int? skip, int? limit, out int totalCount)
+		public IResponseResult<IEnumerable<Role>> GetRoles(string accessToken, out int totalCount, int? skip = null, int? limit = null)
 		{
 			var collectionResponse = this.GetRolesAsync(accessToken, skip, limit).ConfigureAwait(false).GetAwaiter().GetResult();
 			if (collectionResponse.IsSuccess)
@@ -77,7 +77,7 @@ namespace ErtisAuth.Services
 			}
 		}
 
-		public async Task<IResponseResult<CollectionResponseData<Role>>> GetRolesAsync(string accessToken, int? skip, int? limit)
+		public async Task<IResponseResult<CollectionResponseData<Role>>> GetRolesAsync(string accessToken, int? skip = null, int? limit = null)
 		{
 			IQueryString queryString = null;
 			if (skip != null)

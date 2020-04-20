@@ -1,9 +1,9 @@
 using ErtisAuth.Annotations;
 using Newtonsoft.Json;
 
-namespace ErtisAuth.Core.Models.Roles
+namespace ErtisAuth.Core.Models.Users
 {
-	public sealed class Role : ResourceBase, IMembershipBoundedResource, IHasTitle
+	public class UserType : ResourceBase, IMembershipBoundedResource, IHasTitle
 	{
 		#region Properties
 
@@ -18,22 +18,34 @@ namespace ErtisAuth.Core.Models.Roles
 		
 		[JsonProperty("name")]
 		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
 		public string Name { get; set; }
 		
-		[JsonProperty("permissions")]
+		[JsonProperty("description")]
 		[JsonIgnoreWhenNull]
-		public string[] Permissions { get; set; }
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
+		public string Description { get; set; }
 		
 		[JsonProperty("slug")]
 		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
 		public string Slug { get; set; }
+		
+		[JsonProperty("scheme")]
+		[JsonIgnoreWhenNull]
+		[JsonIgnoreWhenPost]
+		[JsonIgnoreWhenPut]
+		public object Scheme { get; set; }
 		
 		[JsonProperty("membership_id")]
 		[JsonIgnoreWhenNull]
 		[JsonIgnoreWhenPost]
 		[JsonIgnoreWhenPut]
 		public string MembershipId { get; set; }
-
+		
 		#endregion
 	}
 }
