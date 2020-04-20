@@ -39,6 +39,11 @@
             <e p="Events" t="Include">
               <e p="EventsEndpoint.cs" t="Include" />
             </e>
+            <e p="Providers" t="Include">
+              <e p="Google" t="Include">
+                <e p="GoogleAuthEndpoint.cs" t="Include" />
+              </e>
+            </e>
             <e p="Roles" t="Include">
               <e p="RolesEndpoint.cs" t="Include" />
             </e>
@@ -176,10 +181,12 @@
           <e p="AuthenticationService.cs" t="Include" />
           <e p="BaseService.cs" t="Include" />
           <e p="EventService.cs" t="Include" />
+          <e p="GoogleAuthService.cs" t="Include" />
           <e p="Interfaces" t="Include">
             <e p="IApplicationService.cs" t="Include" />
             <e p="IAuthenticationService.cs" t="Include" />
             <e p="IEventService.cs" t="Include" />
+            <e p="IGoogleAuthService.cs" t="Include" />
             <e p="IMembershipBoundedService.cs" t="Include" />
             <e p="IRoleService.cs" t="Include" />
             <e p="IUserService.cs" t="Include" />
