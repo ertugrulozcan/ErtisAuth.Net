@@ -36,6 +36,9 @@
             <e p="Diagnostics" t="Include">
               <e p="HealthCheckEndpoint.cs" t="Include" />
             </e>
+            <e p="Events" t="Include">
+              <e p="EventsEndpoint.cs" t="Include" />
+            </e>
             <e p="Roles" t="Include">
               <e p="RolesEndpoint.cs" t="Include" />
             </e>
@@ -69,6 +72,17 @@
               <e p="IPInformations.cs" t="Include" />
               <e p="ProviderModel.cs" t="Include" />
               <e p="SysModel.cs" t="Include" />
+              <e p="UtilizerBase.cs" t="Include" />
+            </e>
+            <e p="Events" t="Include">
+              <e p="ApplicationEvent.cs" t="Include" />
+              <e p="EventLog.cs" t="Include" />
+              <e p="EventTypes.cs" t="Include" />
+              <e p="PasswordEvent.cs" t="Include" />
+              <e p="RoleEvent.cs" t="Include" />
+              <e p="TokenEvent.cs" t="Include" />
+              <e p="UserEvent.cs" t="Include" />
+              <e p="UserTypeEvent.cs" t="Include" />
             </e>
             <e p="IHasIdentifier.cs" t="Include" />
             <e p="IHasTitle.cs" t="Include" />
@@ -85,6 +99,7 @@
               <e p="User.cs" t="Include" />
               <e p="UserBase.cs" t="Include" />
               <e p="UserProfile.cs" t="Include" />
+              <e p="UserType.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -124,6 +139,18 @@
             </e>
           </e>
         </e>
+        <e p="Providers" t="Include">
+          <e p="Google" t="Include">
+            <e p="Core" t="Include">
+              <e p="Models" t="Include">
+                <e p="GoogleAuthResponse.cs" t="Include" />
+                <e p="GoogleAuthToken.cs" t="Include" />
+                <e p="GoogleSessionState.cs" t="Include" />
+                <e p="GoogleUserModel.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
         <e p="Queries" t="Include">
           <e p="MongoQueries" t="Include">
             <e p="IQuery.cs" t="Include" />
@@ -148,9 +175,11 @@
           <e p="ApplicationService.cs" t="Include" />
           <e p="AuthenticationService.cs" t="Include" />
           <e p="BaseService.cs" t="Include" />
+          <e p="EventService.cs" t="Include" />
           <e p="Interfaces" t="Include">
             <e p="IApplicationService.cs" t="Include" />
             <e p="IAuthenticationService.cs" t="Include" />
+            <e p="IEventService.cs" t="Include" />
             <e p="IMembershipBoundedService.cs" t="Include" />
             <e p="IRoleService.cs" t="Include" />
             <e p="IUserService.cs" t="Include" />
