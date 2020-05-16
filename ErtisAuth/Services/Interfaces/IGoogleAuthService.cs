@@ -4,10 +4,8 @@ using ErtisAuth.Infrastructure;
 
 namespace ErtisAuth.Services.Interfaces
 {
-	public interface IGoogleAuthService
+	public interface IGoogleAuthService : IAuthProviderService
 	{
-		IResponseResult<AuthenticationToken> LoginWithGoogle(string googleTokenId);
-
-		Task<IResponseResult<AuthenticationToken>> LoginWithGoogleAsync(string googleTokenId);
+		
 	}
 }

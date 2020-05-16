@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using ErtisAuth.Infrastructure;
 using ErtisAuth.Infrastructure.Endpoints;
 
-namespace ErtisAuth.Api.Endpoints.Providers.Google
+namespace ErtisAuth.Api.Endpoints.Providers.Facebook
 {
-	public class GoogleAuthEndpoint : EndpointBase<GoogleAuthEndpoint.IUrlParams>, IHasPost<GoogleAuthEndpoint.IUrlParams>
+	public class FacebookAuthEndpoint : EndpointBase<FacebookAuthEndpoint.IUrlParams>, IHasPost<FacebookAuthEndpoint.IUrlParams>
 	{
 		#region Properties
 
@@ -13,7 +13,7 @@ namespace ErtisAuth.Api.Endpoints.Providers.Google
 		{
 			get
 			{
-				return $"/sign-in/google";
+				return $"/sign-in/facebook";
 			}
 		}
 
@@ -25,7 +25,7 @@ namespace ErtisAuth.Api.Endpoints.Providers.Google
 		/// Constructor
 		/// </summary>
 		/// <param name="baseUrl"></param>
-		public GoogleAuthEndpoint(string baseUrl) : base(baseUrl)
+		public FacebookAuthEndpoint(string baseUrl) : base(baseUrl)
 		{
 			
 		}
@@ -63,7 +63,7 @@ namespace ErtisAuth.Api.Endpoints.Providers.Google
 			
 		}
 
-		public class GoogleAuthEndpointUrlParams : UrlParamsBase, IUrlParams
+		public class FacebookAuthEndpointUrlParams : UrlParamsBase, IUrlParams
 		{
 			
 		}
@@ -73,6 +73,6 @@ namespace ErtisAuth.Api.Endpoints.Providers.Google
 			
 		}
 
-		#endregion
+		#endregion	
 	}
 }

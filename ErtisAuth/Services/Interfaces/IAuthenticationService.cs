@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using ErtisAuth.Core.Models.Auth;
-using ErtisAuth.Core.Models.Users;
 using ErtisAuth.Infrastructure;
 
 namespace ErtisAuth.Services.Interfaces
@@ -44,6 +43,14 @@ namespace ErtisAuth.Services.Interfaces
 		IResponseResult HealthCheck();
 
 		Task<IResponseResult> HealthCheckAsync();
+		
+		IResponseResult<ResetPasswordToken> ResetPassword(string emailAddress);
+
+		Task<IResponseResult<ResetPasswordToken>> ResetPasswordAsync(string emailAddress);
+
+		IResponseResult SetPassword(string email, string password, string resetToken);
+
+		Task<IResponseResult> SetPasswordAsync(string email, string password, string resetToken);
 
 		#endregion
 	}

@@ -1,5 +1,5 @@
 using System.Threading.Tasks;
-using ErtisAuth.Api.Endpoints.Providers.Google;
+using ErtisAuth.Api.Endpoints.Providers.Facebook;
 using ErtisAuth.Config;
 using ErtisAuth.Core.Models.Auth;
 using ErtisAuth.Core.Models.Response;
@@ -9,11 +9,11 @@ using ErtisAuth.Services.Interfaces;
 
 namespace ErtisAuth.Services
 {
-	public class GoogleAuthService : MembershipBoundedService, IGoogleAuthService
+	public class FacebookAuthService : MembershipBoundedService, IFacebookAuthService
 	{
 		#region Endpoints
 
-		private readonly GoogleAuthEndpoint GoogleAuthEndpoint;
+		private readonly FacebookAuthEndpoint FacebookAuthEndpoint;
 		
 		#endregion
 		
@@ -23,9 +23,9 @@ namespace ErtisAuth.Services
 		/// Constructor
 		/// </summary>
 		/// <param name="configuration"></param>
-		public GoogleAuthService(IErtisAuthConfiguration configuration) : base(configuration)
+		public FacebookAuthService(IErtisAuthConfiguration configuration) : base(configuration)
 		{
-			this.GoogleAuthEndpoint = new GoogleAuthEndpoint(this.BaseUrl);
+			this.FacebookAuthEndpoint = new FacebookAuthEndpoint(this.BaseUrl);
 		}
 
 		#endregion
@@ -34,14 +34,14 @@ namespace ErtisAuth.Services
 
 		public IResponseResult<LoginResponse> Login(IProviderTicket providerTicket)
 		{
-			return this.GoogleAuthEndpoint.Post<LoginResponse>(
+			return this.FacebookAuthEndpoint.Post<LoginResponse>(
 				body: new RequestBody(providerTicket), 
 				headers: this.GetMembershipHeaders());
 		}
 
 		public async Task<IResponseResult<LoginResponse>> LoginAsync(IProviderTicket providerTicket)
 		{
-			return await this.GoogleAuthEndpoint.PostAsync<LoginResponse>(
+			return await this.FacebookAuthEndpoint.PostAsync<LoginResponse>(
 				body: new RequestBody(providerTicket), 
 				headers: this.GetMembershipHeaders());
 		}

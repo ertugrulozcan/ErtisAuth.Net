@@ -20,6 +20,8 @@ namespace ErtisAuth.Services
 		private readonly RevokeTokenEndpoint RevokeTokenEndpoint;
 		private readonly MeEndpoint MeEndpoint;
 		private readonly HealthCheckEndpoint HealthCheckEndpoint;
+		private readonly ResetPasswordEndpoint ResetPasswordEndpoint;
+		private readonly SetPasswordEndpoint SetPasswordEndpoint;
 		
 		#endregion
 		
@@ -37,6 +39,8 @@ namespace ErtisAuth.Services
 			this.RevokeTokenEndpoint = new RevokeTokenEndpoint(this.BaseUrl);
 			this.MeEndpoint = new MeEndpoint(this.BaseUrl);
 			this.HealthCheckEndpoint = new HealthCheckEndpoint(this.BaseUrl);
+			this.ResetPasswordEndpoint = new ResetPasswordEndpoint(this.BaseUrl);
+			this.SetPasswordEndpoint = new SetPasswordEndpoint(this.BaseUrl);
 		}
 
 		#endregion
@@ -174,6 +178,48 @@ namespace ErtisAuth.Services
 			{
 				Console.WriteLine(ex);
 				return new ResponseResult(false, ex.Message);
+			}
+		}
+
+		public IResponseResult<ResetPasswordToken> ResetPassword(string emailAddress)
+		{
+			return this.ResetPasswordEndpoint.Post<ResetPasswordToken>(body: new RequestBody(new { email = emailAddress }), headers: this.GetMembershipHeaders());
+		}
+
+		public async Task<IResponseResult<ResetPasswordToken>> ResetPasswordAsync(string emailAddress)
+		{
+			return await this.ResetPasswordEndpoint.PostAsync<ResetPasswordToken>(body: new RequestBody(new { email = emailAddress }), headers: this.GetMembershipHeaders());
+		}
+		
+		public IResponseResult SetPassword(string email, string password, string resetToken)
+		{
+			var response = this.SetPasswordEndpoint.Post(
+				body: new RequestBody(new { email, password, resetToken }), 
+				headers: this.GetMembershipHeaders());
+			
+			if (response.IsSuccess || (response.HttpCode != null && response.HttpCode == HttpStatusCode.NoContent))
+			{
+				return new ResponseResult(true);
+			}
+			else
+			{
+				return new ResponseResult(false, response.Message);
+			}
+		}
+
+		public async Task<IResponseResult> SetPasswordAsync(string email, string password, string resetToken)
+		{
+			var response = await this.SetPasswordEndpoint.PostAsync(
+				body: new RequestBody(new { email, password, resetToken }), 
+				headers: this.GetMembershipHeaders());
+			
+			if (response.IsSuccess || (response.HttpCode != null && response.HttpCode == HttpStatusCode.NoContent))
+			{
+				return new ResponseResult(true);
+			}
+			else
+			{
+				return new ResponseResult(false, response.Message);
 			}
 		}
 		
