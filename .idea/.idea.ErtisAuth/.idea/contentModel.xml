@@ -206,6 +206,7 @@
             <e p="IGoogleAuthService.cs" t="Include" />
             <e p="IMembershipBoundedService.cs" t="Include" />
             <e p="IRoleService.cs" t="Include" />
+            <e p="ISearchService.cs" t="Include" />
             <e p="IUserService.cs" t="Include" />
           </e>
           <e p="MembershipBoundedService.cs" t="Include" />
