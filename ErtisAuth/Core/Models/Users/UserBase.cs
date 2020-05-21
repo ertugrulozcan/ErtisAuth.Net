@@ -53,7 +53,7 @@ namespace ErtisAuth.Core.Models.Users
 		
 		[JsonProperty("profile")]
 		[JsonIgnoreWhenNull]
-		public UserProfile Profile { get; set; }
+		public ExtendedUserProfile Profile { get; set; }
 		
 		[JsonIgnore]
 		public string FullName

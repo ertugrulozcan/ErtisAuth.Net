@@ -22,4 +22,31 @@ namespace ErtisAuth.Core.Models.Users
 		
 		#endregion
 	}
+
+	public class ExtendedUserProfile : UserProfile
+	{
+		#region Properties
+
+		[JsonProperty("city")]
+		[JsonIgnoreWhenNull]
+		public string City { get; set; }
+		
+		[JsonProperty("country")]
+		[JsonIgnoreWhenNull]
+		public string Country { get; set; }
+		
+		[JsonProperty("address_line_1")]
+		[JsonIgnoreWhenNull]
+		public string AddressLine1 { get; set; }
+		
+		[JsonProperty("address_line_2")]
+		[JsonIgnoreWhenNull]
+		public string AddressLine2 { get; set; }
+		
+		[JsonProperty("area_code")]
+		[JsonIgnoreWhenNull]
+		public string AreaCode { get; set; }
+		
+		#endregion
+	}
 }

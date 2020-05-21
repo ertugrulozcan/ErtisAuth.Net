@@ -5,6 +5,7 @@ using ErtisAuth.Config;
 using ErtisAuth.Core.Models.Applications;
 using ErtisAuth.Core.Models.Response;
 using ErtisAuth.Infrastructure;
+using ErtisAuth.Queries.MongoQueries;
 using ErtisAuth.Services.Interfaces;
 
 namespace ErtisAuth.Services
@@ -189,6 +190,25 @@ namespace ErtisAuth.Services
 				{
 					return new ResponseResult(false, response.Message);
 				}
+			}
+		}
+		
+		public IResponseResult<CollectionResponseData<Application>> Search(string key, string accessToken) => this.SearchAsync(key, accessToken).ConfigureAwait(false).GetAwaiter().GetResult();
+		
+		public async Task<IResponseResult<CollectionResponseData<Application>>> SearchAsync(string key, string accessToken)
+		{
+			var response = await this.ApplicationsEndpoint.PostAsync<CollectionResponse<Application>>(
+				urlParams: new ApplicationsEndpoint.ApplicationsEndpointUrlParams().SetMembershipId(this.MembershipId).UseMongoQuery(),
+				body: new RequestBody(QueryBuilder.Where(QueryBuilder.Search(key)), RequestBody.BodyTypes.MongoQuery),
+				headers: HeaderCollection.Add("Authorization", $"Bearer {accessToken}"));
+
+			if (response.IsSuccess)
+			{
+				return new ResponseResult<CollectionResponseData<Application>>(true) { Data = response.Data.Data };
+			}
+			else
+			{
+				return new ResponseResult<CollectionResponseData<Application>>(false, response.Message);
 			}
 		}
 

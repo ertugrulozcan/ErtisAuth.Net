@@ -1,8 +1,7 @@
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using ErtisAuth.Helpers;
 using ErtisAuth.Infrastructure;
-using ErtisAuth.Json;
 
 namespace ErtisAuth.Rest.Impl
 {
@@ -13,7 +12,6 @@ namespace ErtisAuth.Rest.Impl
 		private readonly HttpClient Client;
 
 		#endregion
-
 
 		#region Constructors
 
@@ -61,7 +59,7 @@ namespace ErtisAuth.Rest.Impl
 
 		public async Task<IResponseResult> ExecuteRequestAsync(HttpMethod method, string url, RequestBody body, IHeaderCollection headers)
 		{
-			var payload = this.GenerateBody(body, method);
+			var payload = RestHelper.GenerateBody(body, method);
 			
 			this.Client.DefaultRequestHeaders.Clear();
 			if (headers != null)
@@ -108,67 +106,6 @@ namespace ErtisAuth.Rest.Impl
 			{
 				return new ResponseResult(false, "Response is null!");
 			}
-		}
-
-		private HttpContent GenerateBody(RequestBody body, HttpMethod method)
-		{
-			if (body == null)
-				return null;
-			
-			HttpContent content = null;
-			
-			if (body.Type == RequestBody.BodyTypes.Json)
-			{
-				string json;
-				if (method == HttpMethod.Post)
-				{
-					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings()
-					{
-						ContractResolver = new JsonContractResolver(HttpMethod.Post)
-					});	
-				}
-				else if (method == HttpMethod.Put)
-				{
-					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context, Newtonsoft.Json.Formatting.None, new Newtonsoft.Json.JsonSerializerSettings()
-					{
-						ContractResolver = new JsonContractResolver(HttpMethod.Put)
-					});	
-				}
-				else
-				{
-					json = Newtonsoft.Json.JsonConvert.SerializeObject(body.Context);
-				}
-				
-				var buffer = System.Text.Encoding.UTF8.GetBytes(json);
-				content = new ByteArrayContent(buffer);
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-			}
-			else if (body.Type == RequestBody.BodyTypes.Xml)
-			{
-				string xml = body.Context.ToString();
-				var buffer = System.Text.Encoding.UTF8.GetBytes(xml);
-				content = new ByteArrayContent(buffer);
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/xml");
-			}
-			else if (body.Type == RequestBody.BodyTypes.Binary)
-			{
-				var buffer = (byte[]) body.Context;
-				content = new ByteArrayContent(buffer);
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
-			}
-			else if (body.Type == RequestBody.BodyTypes.UrlEncoded)
-			{
-				content = new FormUrlEncodedContent(RequestBody.DecodeUrlEncoded(body.Context.ToString()));
-				content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-			}
-			else
-			{
-				var buffer = System.Text.Encoding.UTF8.GetBytes(body.Context.ToString());
-				content = new ByteArrayContent(buffer);
-				content.Headers.ContentType = new MediaTypeHeaderValue("application/text");
-			}
-			
-			return content;
 		}
 
 		#endregion

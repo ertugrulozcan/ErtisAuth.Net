@@ -22,6 +22,7 @@ namespace ErtisAuth.Services
 		private readonly HealthCheckEndpoint HealthCheckEndpoint;
 		private readonly ResetPasswordEndpoint ResetPasswordEndpoint;
 		private readonly SetPasswordEndpoint SetPasswordEndpoint;
+		private readonly ChangePasswordEndpoint ChangePasswordEndpoint;
 		
 		#endregion
 		
@@ -41,6 +42,7 @@ namespace ErtisAuth.Services
 			this.HealthCheckEndpoint = new HealthCheckEndpoint(this.BaseUrl);
 			this.ResetPasswordEndpoint = new ResetPasswordEndpoint(this.BaseUrl);
 			this.SetPasswordEndpoint = new SetPasswordEndpoint(this.BaseUrl);
+			this.ChangePasswordEndpoint = new ChangePasswordEndpoint(this.BaseUrl);
 		}
 
 		#endregion
@@ -191,10 +193,10 @@ namespace ErtisAuth.Services
 			return await this.ResetPasswordEndpoint.PostAsync<ResetPasswordToken>(body: new RequestBody(new { email = emailAddress }), headers: this.GetMembershipHeaders());
 		}
 		
-		public IResponseResult SetPassword(string email, string password, string resetToken)
+		public IResponseResult SetPassword(string email, string password, string reset_token)
 		{
 			var response = this.SetPasswordEndpoint.Post(
-				body: new RequestBody(new { email, password, resetToken }), 
+				body: new RequestBody(new { email, password, reset_token }), 
 				headers: this.GetMembershipHeaders());
 			
 			if (response.IsSuccess || (response.HttpCode != null && response.HttpCode == HttpStatusCode.NoContent))
@@ -207,10 +209,10 @@ namespace ErtisAuth.Services
 			}
 		}
 
-		public async Task<IResponseResult> SetPasswordAsync(string email, string password, string resetToken)
+		public async Task<IResponseResult> SetPasswordAsync(string email, string password, string reset_token)
 		{
 			var response = await this.SetPasswordEndpoint.PostAsync(
-				body: new RequestBody(new { email, password, resetToken }), 
+				body: new RequestBody(new { email, password, reset_token }), 
 				headers: this.GetMembershipHeaders());
 			
 			if (response.IsSuccess || (response.HttpCode != null && response.HttpCode == HttpStatusCode.NoContent))
@@ -221,6 +223,16 @@ namespace ErtisAuth.Services
 			{
 				return new ResponseResult(false, response.Message);
 			}
+		}
+
+		public IResponseResult ChangePassword(string userId, string newPassword, string accessToken)
+		{
+			return this.ChangePasswordEndpoint.Post(body: new RequestBody(new { user_id = userId, password = newPassword, password_confirm = newPassword }), headers: this.GetMembershipHeaders(accessToken));
+		}
+
+		public async Task<IResponseResult> ChangePasswordAsync(string userId, string newPassword, string accessToken)
+		{
+			return await this.ChangePasswordEndpoint.PostAsync(body: new RequestBody(new { user_id = userId, password = newPassword, password_confirm = newPassword }), headers: this.GetMembershipHeaders(accessToken));
 		}
 		
 		#endregion

@@ -7,7 +7,7 @@ using ErtisAuth.Infrastructure;
 
 namespace ErtisAuth.Services.Interfaces
 {
-	public interface IUserService
+	public interface IUserService : ISearchService<User>
 	{
 		IResponseResult<User> Register(User user, string password);
 		

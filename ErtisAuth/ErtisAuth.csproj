@@ -5,18 +5,18 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 
         <PackageId>ErtisAuth</PackageId>
-        <PackageVersion>1.4.2</PackageVersion>
+        <PackageVersion>1.5.0</PackageVersion>
         <Authors>Ertuğrul Özcan</Authors>
         <Description>ErtisAuth .Net Client API</Description>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <Copyright>Ertuğrul Özcan | Copyright 2020 (c)</Copyright>
-        <PackageReleaseNotes>Provider auth services implemented</PackageReleaseNotes>
+        <PackageReleaseNotes>Search service implemented</PackageReleaseNotes>
         <PackageTags>ErtisAuth</PackageTags>
         <Title>ErtisAuth</Title>
         <PackageProjectUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</PackageProjectUrl>
         <RepositoryUrl>https://github.com/ertugrulozcan/ErtisAuth.Net</RepositoryUrl>
-        <AssemblyVersion>1.4.2</AssemblyVersion>
-        <FileVersion>1.4.2</FileVersion>
+        <AssemblyVersion>1.5.0</AssemblyVersion>
+        <FileVersion>1.5.0</FileVersion>
     </PropertyGroup>
 
     <ItemGroup>

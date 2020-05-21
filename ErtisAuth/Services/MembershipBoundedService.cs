@@ -30,9 +30,16 @@ namespace ErtisAuth.Services
 
 		#region Methods
 
-		protected IHeaderCollection GetMembershipHeaders()
+		protected IHeaderCollection GetMembershipHeaders(string token = null)
 		{
-			return HeaderCollection.Add("X-Ertis-Alias", this.MembershipId);
+			if (string.IsNullOrEmpty(token))
+			{
+				return HeaderCollection.Add("X-Ertis-Alias", this.MembershipId);	
+			}
+			else
+			{
+				return HeaderCollection.Add("X-Ertis-Alias", this.MembershipId).AddHeader("Authorization", $"Bearer {token}");
+			}
 		}
 
 		#endregion

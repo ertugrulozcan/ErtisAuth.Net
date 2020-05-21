@@ -335,6 +335,20 @@ namespace ErtisAuth.Queries.MongoQueries
 
 		#endregion
 
+		#region Search Queries
+
+		[MongoOperator("$search")]
+		public static IQuery Search(string key)
+		{
+			return new Query()
+			{
+				Key = "$text",
+				Value = new Query("$search", key)
+			};
+		}
+		
+		#endregion
+		
 		#region Other Methods
 
 		public static IQuery Combine(IEnumerable<IQuery> values)

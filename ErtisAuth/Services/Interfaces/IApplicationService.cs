@@ -6,7 +6,7 @@ using ErtisAuth.Infrastructure;
 
 namespace ErtisAuth.Services.Interfaces
 {
-	public interface IApplicationService
+	public interface IApplicationService : ISearchService<Application>
 	{
 		IResponseResult<Application> GetApplication(string applicationId, string accessToken);
 		

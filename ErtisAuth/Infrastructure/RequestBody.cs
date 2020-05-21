@@ -19,6 +19,7 @@ namespace ErtisAuth.Infrastructure
 			Html,
 			Xml,
 			Binary,
+			MongoQuery,
 			GraphQL
 		}
 

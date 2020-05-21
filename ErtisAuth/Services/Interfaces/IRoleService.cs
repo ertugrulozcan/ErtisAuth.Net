@@ -6,7 +6,7 @@ using ErtisAuth.Infrastructure;
 
 namespace ErtisAuth.Services.Interfaces
 {
-	public interface IRoleService
+	public interface IRoleService : ISearchService<Role>
 	{
 		IResponseResult<Role> GetRole(string roleId, string accessToken);
 		

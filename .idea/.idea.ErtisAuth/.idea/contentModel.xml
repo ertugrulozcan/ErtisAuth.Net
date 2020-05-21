@@ -74,6 +74,7 @@
               <e p="HealthCheckResponse.cs" t="Include" />
               <e p="Me.cs" t="Include" />
               <e p="RegistrationForm.cs" t="Include" />
+              <e p="ResetPasswordToken.cs" t="Include" />
             </e>
             <e p="Common" t="Include">
               <e p="ErrorModel.cs" t="Include" />
@@ -117,6 +118,7 @@
           <e p="UserExtensions.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
+          <e p="RestHelper.cs" t="Include" />
           <e p="StringHelper.cs" t="Include" />
           <e p="UrlHelper.cs" t="Include" />
         </e>
